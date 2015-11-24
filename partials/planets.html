@@ -1,0 +1,27 @@
+<nav>
+  <ul class="pagination">
+    <li>
+      <a ui-sref="{{prev()}}" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li ng-repeat="page in pages" class="{{page.class}}">
+      <a ui-sref="{{page.state}}">{{page.num}}</a>
+    </li>
+    <li>
+      <a ui-sref="{{next()}}" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<ul>
+  <li ng-repeat="planet in planets">{{planet.name}} -- {{planet.population}}
+    <ul>
+      <li ng-repeat="resident in planet.residents">
+        <a ui-sref="resident({id: resident.id})">{{resident.character ? resident.character.name : 'Resident ' + resident.id}} -- {{resident.url}}</a>
+      </li>
+    </ul>
+  </li>
+</ul>
